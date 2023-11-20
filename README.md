@@ -29,12 +29,15 @@
 ## 목차
 
 1. [개발 기간](#개발-기간)
-2. [프로젝트 개요](#프로젝트-개요)
-3. [기획서](#기획서)
-4. [ERD](#erd)
-5. [구현 기능 목록](#구현-기능-목록)
-6. [주요 구현 과정](#주요-구현-과정)
-7. [배포](#배포)
+2. [프로젝트 구조](#프로젝트-구조)
+3. [프로젝트 개요](#프로젝트-개요)
+4. [협업 요약](#협업-요약)
+5. [기획서](#기획서)
+6. [백엔드 역할](#백엔드-역할)
+7. [ERD](#erd)
+8. [구현 기능 목록](#구현-기능-목록)
+9. [주요 구현 과정](#주요-구현-과정)
+10. [배포](#배포)
 
 ## 📌개발 기간
 
@@ -62,6 +65,9 @@
 3. 중장년층을 고려하여 쿠키를 사용한 간편한 사용자 정보 수집 방식 도입
 4. 수집된 정보를 시각화하여 다양한 통계 기능 제공
 
+## 📌협업 요약
+![Untitled](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/7f027c78-5ea0-4a7c-be1a-fec85fb2db17)
+
 ## 📌기획서
 
 
@@ -76,11 +82,17 @@
 
 </details>
 
+## 📌백엔드 역할
+
+곽민성 - `교육 도메인`, `Open API 파이프라인 구축` , `통계`
+
+안승주 - `게시판 도메인`, `JWT 토큰` , `데이터 전송`
+
 ## 📌ERD
 
 <details>
     <summary>자세히 (클릭)</summary>
-    
+
 ![image](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/68efbf0d-da09-476c-a557-e46adc998d3a)
 
 </details>
@@ -89,16 +101,16 @@
 
 <details>
     <summary>자세히 (클릭)</summary>
-    
-### 교육 정보 통계
+
+## 교육 정보 통계
 ![image](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/45db426f-d73e-4093-9d99-a9ad6110b689)
-### 챗봇
+## 챗봇
 ![image](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/981fe8a4-2dd1-4c8c-a928-501f9e49e8c5)
-### 교육 정보 조회 및 필터링 기능
+## 교육 정보 조회 및 필터링 기능
 ![image](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/cbe7fa12-a404-4fed-a9f7-954b5824580f)
-### 교육 정보 상세 조회 및 댓글
+## 교육 정보 상세 조회 및 댓글
 ![image](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/c5ce5c28-8115-4eb5-b124-28c262b417c9)
-### 자유 게시판 관련 기능
+## 자유 게시판 관련 기능
 ![image](https://github.com/kawkmin/seoul-competition-backend/assets/86940335/d9636da3-576a-4de3-8843-fc0fac1402aa)
 
 </details>
@@ -106,7 +118,7 @@
 
 ## 📌주요 구현 과정
 
-### 다른 두 공공 데이터 API를 매핑하여, 하나의 Entity로 만드는 데이터 파이프라인 구축
+### 1. 다른 두 공공 데이터 API를 매핑하여, 하나의 Entity로 만드는 데이터 파이프라인 구축
 
 JSONParser 을 통해 URL에서 데이터를 가져와, 두 공공 데이터를 분석하여 ERD 규격에 맞게 전처리 및 저장을 하였습니다.
 
@@ -118,7 +130,7 @@ JSONParser 을 통해 URL에서 데이터를 가져와, 두 공공 데이터를 
 
 또한 한번에 많은 데이터가 들어올 것을 방지하고자, 스케줄러를 사용하여 매일 16시에 무조건 한번 업데이트를 하도록 하였습니다.
 
-### Python 기반의 AI를 JAVA 기반 Spring과 연결
+### 2. Python 기반의 AI를 JAVA 기반 Spring과 연결
 
 - **WebClient**를 통해, Python 프레임워크인 **FastAPI**를 AI 서버로 두어, Spring과 연결하여, AI 모델을 서버에 추가 부하없이, 사용할 수 있게 하였습니다.
 
